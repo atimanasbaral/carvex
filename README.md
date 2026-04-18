@@ -1,20 +1,20 @@
-AI Resume Builder App
-An AI-powered resume builder that takes your raw experience, skills, and a target job description, then generates a polished ATS-friendly resume using Google Gemini AI. Built with React, Vite, and an Express backend.
+<div align="center">
+<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
+</div>
+
+# Run and deploy your AI Studio app
+
+This contains everything you need to run your app locally.
+
+View your app in AI Studio: https://ai.studio/apps/510710b0-e2a1-4b41-b16c-4b8b14377bf1
+
+## Run Locally
+
+**Prerequisites:**  Node.js
 
 
-Live App: 
-
-
-Project Structure
-├── src/
-│   ├── components/       # React components
-│   ├── pages/            # Page-level components
-│   ├── assets/           # Static assets
-│   └── main.tsx          # App entry point
-├── server.ts             # Express backend server
-├── .env.local            # Environment variables
-├── vite.config.ts        # Vite configuration
-├── tailwind.config.ts    # Tailwind configuration
-├── tsconfig.json         # TypeScript configuration
-└── package.json          # Project dependencies
-
+1. Install dependencies:
+   `npm install`
+2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
+3. Run the app:
+   `npm run dev`
