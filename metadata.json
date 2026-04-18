@@ -1,0 +1,6 @@
+{
+  "name": "CareerAgent",
+  "description": "An AI-powered career co-pilot for high-octane job seekers. Features job searching, ATS scoring, resume tailoring, and application tracking.",
+  "requestFramePermissions": [],
+  "majorCapabilities": []
+}
