@@ -7,7 +7,6 @@ import fs from 'fs';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-// In-memory "DB"
 let applications = [
   {
     id: '1',
@@ -39,10 +38,8 @@ async function startServer() {
 
   app.use(express.json());
 
-  // API Routes
   app.post('/api/search/jobs', (req, res) => {
     const { role, location } = req.body;
-    // Return some semi-realistic mock jobs for the agent to use
     const jobs = [
       {
         id: 'j1',
@@ -79,11 +76,6 @@ async function startServer() {
   });
 
   app.post('/api/ats/score', async (req, res) => {
-    // This will be handled by the frontend calling Gemini directly, 
-    // but the user requested backend endpoints. 
-    // To keep it simple and avoid double-handling, I'll return a semi-randomized but consistent response.
-    // Or I could implement AI here, but the skill says "Always call Gemini API from the frontend".
-    // So I'll return a mock score that looks real.
     res.json({
       score: 75 + Math.floor(Math.random() * 20),
       matchedKeywords: ['React', 'TypeScript', 'Tailwind', 'System Design'],
@@ -128,7 +120,6 @@ async function startServer() {
     }
   });
 
-  // Vite middleware for development
   if (process.env.NODE_ENV !== 'production') {
     const vite = await createViteServer({
       server: { middlewareMode: true },
@@ -136,7 +127,6 @@ async function startServer() {
     });
     app.use(vite.middlewares);
   } else {
-    // Production serving from dist
     const distPath = path.join(process.cwd(), 'dist');
     if (fs.existsSync(distPath)) {
       app.use(express.static(distPath));
@@ -145,11 +135,10 @@ async function startServer() {
       });
     }
   }
-  app.listen(PORT, '0.0.0.0', () => {
-  console.log(`Server running at http://0.0.0.0:${PORT}`);
-});
 
-    });
+  app.listen(PORT, '0.0.0.0', () => {
+    console.log(`Server running at http://0.0.0.0:${PORT}`);
+  });
 }
 
 startServer();
